@@ -34,3 +34,24 @@ function startTimer() {
 
 // Initial display
 updateTimerDisplay(totalSeconds);
+
+// Event listeners
+startBtn.addEventListener('click', () => {
+	startTimer();
+});
+
+pauseBtn.addEventListener('click', () => {
+	if (timerInterval) {
+		clearInterval(timerInterval);
+		timerInterval = null;
+	}
+});
+
+resetBtn.addEventListener('click', () => {
+	if (timerInterval) {
+		clearInterval(timerInterval);
+		timerInterval = null;
+	}
+	totalSeconds = defaultTime;
+	updateTimerDisplay(totalSeconds);
+});
